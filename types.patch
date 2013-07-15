@@ -1,0 +1,13 @@
+--- /usr/include/i386-linux-gnu/bits/types.h	2012-12-30 17:38:35.000000000 +0100
++++ types-new.h	2013-07-09 20:28:49.488396519 +0200
+@@ -44,8 +44,8 @@
+ typedef signed long int __int64_t;
+ typedef unsigned long int __uint64_t;
+ #elif defined __GLIBC_HAVE_LONG_LONG
+-__extension__ typedef signed long long int __int64_t;
+-__extension__ typedef unsigned long long int __uint64_t;
++//__extension__ typedef signed long long int __int64_t;
++//__extension__ typedef unsigned long long int __uint64_t;
+ #endif
+ 
+ /* quad_t is also 64 bits.  */

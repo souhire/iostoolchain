@@ -1,0 +1,15 @@
+--- configure	2012-12-15 14:44:40.000000000 +0100
++++ configure-new	2013-07-09 19:07:15.200279965 +0200
+@@ -2454,9 +2454,9 @@
+ 
+ 
+ #force compiler to clang
+-CC=clang
+-CXX=clang++
+-CPP="clang -E"
++CC=$(HOME)/toolchain/bin/clang
++CXX=$(HOME)/toolchain/bin/clang++
++CPP="$(HOME)/toolchain/bin/clang -E"
+ 
+ am__api_version='1.11'
+ 

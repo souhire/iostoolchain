@@ -1,0 +1,13 @@
+--- genLocalization2/getLocalizedStringFromFile.cpp	2013-01-02 16:39:24.000000000 +0100
++++ genLocalization2/getLoca-new.cpp	2013-07-12 16:10:44.589195360 +0200
+@@ -104,8 +104,8 @@
+         headerSearchOptions->AddPath(includepaths.at(i),
+                 clang::frontend::Angled,
+                 false,
+-                false,
+-                false);
++                false/*,
++		       false*/);
+     clang::HeaderSearch headerSearch(headerSearchOptions,
+                                      fileManager,
+                                      *pDiagnosticsEngine,

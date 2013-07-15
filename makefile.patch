@@ -1,0 +1,12 @@
+--- Makefile	2013-07-09 21:59:47.340519869 +0200
++++ Makefile-new	2013-07-09 22:03:09.280523866 +0200
+@@ -236,7 +236,8 @@
+ top_builddir = ..
+ top_srcdir = ..
+ ld_classic_LDADD = \
+-        $(top_srcdir)/libstuff/libstuff.la
++        $(top_srcdir)/libstuff/libstuff.la \
++	$(UUID_LIBS)
+ 
+ ld_classic_CFLAGS = -D__DARWIN_UNIX03 -I$(top_srcdir)/include -I$(top_srcdir)/include/foreign -I$(top_srcdir)/libstuff $(WARNINGS) $(LTO_DEFS) $(ENDIAN_FLAG) -DDEBUG
+ ld_classic_SOURCES = \

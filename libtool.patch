@@ -1,0 +1,13 @@
+--- libtool.c	2012-12-15 14:44:38.000000000 +0100
++++ libtool-new.c	2013-07-09 21:37:14.324490692 +0200
+@@ -1365,8 +1365,8 @@
+ 			    }
+ 			}
+ 		    }
+-		    else if(ofiles[i].arch_type == OFILE_Mach_O ||
+-		            ofiles[i].arch_type == OFILE_LLVM_BITCODE){
++		    else if(ofiles[i].arch_type == OFILE_Mach_O 
++			    /*|| ofiles[i].arch_type == OFILE_LLVM_BITCODE*/){
+ 			if(cmd_flags.ranlib == TRUE){
+ 			    error("for architecture: %s file: %s is not an "
+ 				  "archive (no processing done on this file)",
