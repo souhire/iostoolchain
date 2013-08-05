@@ -13,6 +13,7 @@ mkdir toolchain;
 popd ;
 cp * $HOME/toolchain;
 cd $HOME/toolchain;
+DOWNLOAD=./download;
 
 svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm-svn;
 cd llvm-svn/tools;
@@ -33,9 +34,9 @@ cd $HOME/toolchain;
 
 echo Assembler and Linker;
 
-wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/cctools-836-ld64-134.9-for-linux-1.0.tar.xz;
+#wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/cctools-836-ld64-134.9-for-linux-1.0.tar.xz;
 
-tar xvf cctools-836-ld64-134.9-for-linux-1.0.tar.xz;
+tar xvf $DOWNLOAD/cctools-836-ld64-134.9-for-linux-1.0.tar.xz;
 cd cctools-836;
 
 sudo apt-get install uuid-dev;
@@ -114,11 +115,11 @@ sudo make install;
 echo iPhoneOS SDK;
 
 cd $HOME/toolchain;
-wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iPhoneOS4.2.sdk.tar.xz;
-sudo tar xvf iPhoneOS4.2.sdk.tar.xz -C $HOME/toolchain/share;
+#wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iPhoneOS4.2.sdk.tar.xz;
+sudo tar xvf $DOWNLOAD/iPhoneOS4.2.sdk.tar.xz -C $HOME/toolchain/share;
 
-wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iPhoneOS5.0.sdk.tar.xz;
-sudo tar xvf iPhoneOS5.0.sdk.tar.xz -C $HOME/toolchain/share;
+#wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iPhoneOS5.0.sdk.tar.xz;
+sudo tar xvf $DOWNLOAD/iPhoneOS5.0.sdk.tar.xz -C $HOME/toolchain/share;
 
 wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iPhoneOS6.0.sdk.tar.xz;
 sudo tar xvf iPhoneOS6.0.sdk.tar.xz -C $HOME/toolchain/share;
@@ -127,8 +128,8 @@ sudo tar xvf iPhoneOS6.0.sdk.tar.xz -C $HOME/toolchain/share;
 
 echo utilities;
 
-wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iphonesdk-utils-1.8.tar.bz2;
-tar xvf iphonesdk-utils-1.8.tar.bz2;
+#wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iphonesdk-utils-1.8.tar.bz2;
+tar xvf $DONWLOAD/iphonesdk-utils-1.8.tar.bz2;
 
 sudo apt-get install pkg-config;
 cd iphonesdk-utils-1.8.tar.bz2;
