@@ -11,7 +11,7 @@ echo Compiler;
 pushd $HOME;
 mkdir toolchain;
 popd ;
-cp * $HOME/toolchain;
+cp -r * $HOME/toolchain;
 cd $HOME/toolchain;
 DOWNLOAD=./download;
 
@@ -74,7 +74,7 @@ cd $HOME/toolchain/cctools-836;
 cp $HOME/toolchain/helper.patch . ;
 patch -p0 < helper.patch;
 
-./configure --target=arm-apple-darwin11 --prefix=$HOME;
+./configure --target=arm-apple-darwin11 --prefix=$HOME/toolchain;
 
 cd ld;
 #wget makefile.patch; # -> à récupérer
@@ -82,7 +82,7 @@ cp $HOME/toolchain/makefile.patch . ;
 patch -p0 < makefile.patch;
 cd ..;
 
-sed -i 's_<llvm-c/lto.h>_"'"$HOME/toolchain/llvm-svn/include/llvm-c/lto.h"'"_g' libstuff/lto.h;
+sed -i 's_<llvm-c/lto.h>_"'"$HOME/toolchain/llvm-svn/include/llvm-c/lto.h"'"_g' libstuff/lto.c;
 
 sed -i 's_llvm-c/lto.h_'"$HOME/toolchain/llvm-svn/include/llvm-c/lto.h"'_g' ld64/src/ld/parsers/lto_file.cpp;
 
@@ -99,7 +99,7 @@ sudo make install;
 
 #cd ..;
 #wget xar;
-#sudo apt-get install libxml2-dev;
+sudo apt-get install libxml2-dev;
 #cd xar-1.5.2;
 #./configure && make && sudo make install;
 #cd ..;
@@ -129,14 +129,14 @@ sudo tar xvf iPhoneOS6.0.sdk.tar.xz -C $HOME/toolchain/share;
 echo utilities;
 
 #wget http://ios-toolchain-based-on-clang-for-linux.googlecode.com/files/iphonesdk-utils-1.8.tar.bz2;
-tar xvf $DONWLOAD/iphonesdk-utils-1.8.tar.bz2;
+tar xvf $DOWNLOAD/iphonesdk-utils-1.8.tar.bz2;
 
 sudo apt-get install pkg-config;
-cd iphonesdk-utils-1.8.tar.bz2;
+cd iphonesdk-utils-1.8;
 
 #wget genLoca.patch;
-cp $HOME/toolchain/getLoca;patch . ;
-patch -p1 < getLoca.patch;
+cp ../getLoca.patch . ;
+patch -p0 < getLoca.patch;
 
 ./configure --prefix=$HOME/toolchain;
 make;
